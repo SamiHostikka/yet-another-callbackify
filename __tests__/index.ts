@@ -1,37 +1,40 @@
 import wrapper from '../src';
 
 describe('yet another Lambda wrapper', () => {
-    it('should throw exception without valid function', () => {
-        expect(wrapper()).toThrow('Invalid argument');
-    });
-
     it('should fail gracefully and call callback', () => {
         const err = new Error('An error occured');
         const fn = () => { throw err };
-        const mock = jest.fn();
+        const callback = jest.fn();
 
-        wrapper(fn)({}, {}, mock);
+        wrapper(fn)({}, {}, callback);
 
-        expect(mock).toHaveBeenCalledTimes(1);
-        expect(mock).toBeCalledWith(err, null);
+        expect(callback).toHaveBeenCalledTimes(1);
+        expect(callback).toBeCalledWith(err, undefined);
     });
 
-    it('should call callback on failure', () => {
+    it('should call callback on failure', done => {
         const err = new Error('It doesnt work');
         const fn = () => Promise.reject(err);
-        const mock = jest.fn();
 
-        expect(mock).toHaveBeenCalledTimes(1);
-        expect(mock).toHaveBeenCalledWith(err, null);
+        const callback = (error, result) => {
+            expect(error).toBe(err);
+            expect(result).toBe(undefined);
+
+            done();
+        }
+
+        wrapper(fn)({}, {}, callback);
     });
 
-    it('should call callback on succes', () => {
+    it('should call callback on succes', done => {
         const fn = () => Promise.resolve('It works!');
-        const mock = jest.fn();
+        const callback = (error, result) => {
+            expect(error).toBe(undefined);
+            expect(result).toBe('It works!');
 
-        wrapper(fn)({}, {}, mock);
+            done();
+        }
 
-        expect(mock).toHaveBeenCalledTimes(1);
-        expect(mock).toHaveBeenCalledWith(null, 'It works!');
+        wrapper(fn)({}, {}, callback);
     });
 });
