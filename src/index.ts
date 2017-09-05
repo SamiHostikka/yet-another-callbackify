@@ -1,10 +1,16 @@
-export default function wrapper(fn: (event: any) => Promise) {
-    return async (event: any, ctx: any, cb: AWSLambda.Callback) => {
+export default function callbackify(fn: (event: any) => Promise) {
+    return async (...args: any[]) => {
+        const callback = args.pop();
+
+        if ('function' !== typeof callback) {
+            throw new TypeError('Callback is not a function');
+        }
+
         try {
-            const result = await fn(event);
-            return cb(undefined, result);
+            const result = await fn(...args);
+            return callback(null, result);
         } catch (error) {
-            return cb(error, undefined);
+            return callback(error, null);
         }
     };
 }

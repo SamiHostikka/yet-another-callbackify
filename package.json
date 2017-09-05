@@ -1,5 +1,5 @@
 {
-  "name": "yet-another-lambda-wrapper",
+  "name": "callbackify",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "author": "hstkk",
   "license": "MIT",
   "devDependencies": {
-    "@types/aws-lambda": "^0.0.16",
     "@types/jest": "^20.0.8",
     "jest": "^20.0.4",
     "ts-jest": "^20.0.14",
