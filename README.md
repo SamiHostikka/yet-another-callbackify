@@ -1,4 +1,4 @@
-# Callbackify
+# Yet another callbackify
 
 *It's probably good idea to check Node util.callbackify or Bluebird.asCallback instead of using this*
 

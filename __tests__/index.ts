@@ -1,6 +1,6 @@
 import callbackify from '../src';
 
-describe('Callbackify', () => {
+describe('Yet another callbackify', () => {
     it('should fail without callback', async () => {
         try {
             await callbackify()();
