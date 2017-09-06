@@ -1,5 +1,6 @@
 {
   "name": "callbackify",
+  "description": "Callbackifies your promises",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
