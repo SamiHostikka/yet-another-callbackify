@@ -9,5 +9,5 @@ deploy:
     branch: master
   tag: next
   skip_cleanup: true
-script: yarn build
+script: yarn deploy
 sudo: false

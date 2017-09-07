@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rm -rf dist",
+    "deploy": "yarn lint && yarn test && yarn build",
     "lint": "tslint --project .",
     "pretest": "yarn run lint",
     "test": "jest"
