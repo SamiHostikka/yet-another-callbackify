@@ -6,10 +6,11 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rm -rf dist",
-    "deploy": "yarn lint && yarn test && yarn build",
+    "deploy": "yarn lint && yarn test-ci && yarn build",
     "lint": "tslint --project .",
     "pretest": "yarn run lint",
-    "test": "jest"
+    "test": "jest",
+    "test-ci": "yarn test -- --runInBand --coverage"
   },
   "author": "hstkk",
   "repository": "hstkk/yet-another-callbackify",
