@@ -1,4 +1,4 @@
-export default function callbackify(fn: (event: any) => Promise<any>) {
+export default function callbackify(fn: () => Promise<any>) {
     return async (...args: any[]) => {
         const callback = args.pop();
 
@@ -7,7 +7,7 @@ export default function callbackify(fn: (event: any) => Promise<any>) {
         }
 
         try {
-            const result = await fn.apply(void 0, args);
+            const result = await fn(...args);
             return callback(null, result);
         } catch (error) {
             return callback(error, null);
