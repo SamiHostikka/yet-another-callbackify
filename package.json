@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rm -rf dist",
-    "lint": "tslint -force src/**/*.ts",
+    "lint": "tslint --project .",
     "pretest": "yarn run lint",
     "test": "jest"
   },
