@@ -57,4 +57,21 @@ describe('Yet another callbackify', () => {
 
         callbackify(fn)('event', 'context', callback);
     });
+
+    it('should resolve promise on succes', () => {
+        const fn = () => Promise.resolve('It works!');
+        const promise = callbackify(fn)(() => { });
+
+        expect.assertions(1);
+        expect(promise).resolves.toBe('It works!');
+    });
+
+    it('should reject promise on failure', () => {
+        const err = new Error('It doesnt work');
+        const fn = () => Promise.reject(err);
+        const promise = callbackify(fn)(() => { });
+
+        expect.assertions(1);
+        expect(promise).rejects.toBe(err);
+    });
 });

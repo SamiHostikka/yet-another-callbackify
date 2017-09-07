@@ -28,6 +28,6 @@ exports.handler = (event, context, callback) => {
 ## API
 
 ```typescript
-callbackify(fn: Function)(callback: Function)
-callbackify(fn: Function)(args: any[], callback: Function)
+callbackify(fn: () => Promise<any>): (callback: Function) => Promise<any>
+callbackify(fn: () => Promise<any>): (...args: any[], callback: Function) => Promise<any>
 ```

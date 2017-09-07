@@ -8,9 +8,12 @@ export default function callbackify(fn: () => Promise<any>) {
 
         try {
             const result = await fn(...args);
-            return callback(null, result);
+
+            callback(null, result);
+            return result;
         } catch (error) {
-            return callback(error, null);
+            callback(error, null);
+            throw error;
         }
     };
 }
