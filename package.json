@@ -6,10 +6,12 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rm -rf dist",
-    "lint": "tslint src/**/*.ts",
+    "lint": "tslint -force src/**/*.ts",
+    "pretest": "yarn run lint",
     "test": "jest"
   },
   "author": "hstkk",
+  "repository": "hstkk/yet-another-callbackify",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^20.0.8",

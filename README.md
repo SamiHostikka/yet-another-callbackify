@@ -4,6 +4,14 @@
 
 Are you tired of using old fashioned callbacks? Callbackify saves your code as it converts your promises to callbacks
 
+## Installation
+
+```sh
+yarn add yet-another-callbackify
+# -or-
+npm install --save yet-another-callbackify
+```
+
 ## Usage
 
 ```javascript

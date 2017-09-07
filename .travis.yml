@@ -1,0 +1,13 @@
+language: node_js
+node_js: "node"
+deploy:
+  provider: npm
+  email: hostikka@gmail.com
+  api_key:
+    secure: hGtcBFcohdISRMxevbTarI9ZGqRJ8D8X8EHLNxxPdMrb0vvuS3fSSlcSVjcAba9A/E87FM7il7RxSyFICIFMlA1Bo4RphIThyPxNC3gqmqcgt2W103m2Qb0X8ZNvNJeOAJIuqjiYxE5PyQPBWjwU8Jfn2/up85iG8TFIi2E7h6FF9S8YGGx5tjmGVp+pEIyMEjJAxHk5I3bJVYMkbvfNi3BzJEiIpRqfl2smXTnLE7rWzO9I7xUvXWsO9NnWdJ0hL3PEo/rY54a6SV2aWQwN400Oj/2LQX3kbzq5l/onpgz8HLxAPip1tKKkSk750HRfqaD59LC0OkXl8TplvER79rKg2QmDBcaptya5h241p+SVFuWi5DFhJd+bcOr0UiBr/QaVDvm9yfcEKXHK0F1TBjaHDGHMzvPsFjRzgUglA/OqvLi/AUy0QaVfDCZvyqyT3YK5eNcp6QwDg+HFIbFdsKum8GDm6nwTopneZD31IC46gS9slxqewJI6clJS/9lK/vAD7y9s1azE5wa6jf1ZZGBeKdhzyPp1Z4JsPYUV2L+Sn3J0pNI8R+G/mxFGS5ODudtCPAfDhZMMcbiV4qaizbPe8PzT/liEFiUerzrRKyGgVDPWBKg7osapi20Y3Vbui+ebv3INsjYVpnmyqfinenWZEEH4IIX9/DrpDO0pcg8=
+  on:
+    branch: master
+  tag: next
+  skip_cleanup: true
+script: yarn build
+sudo: false
